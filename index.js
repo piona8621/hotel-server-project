@@ -208,6 +208,12 @@ async function run() {
     });
 
 
+    
+
+   app.get('/highlightedHotelRooms', async(req, res) => {
+        const highlightedHotelRooms = await hotelsCollection.find().sort({rating: -1}).limit(3).toArray();
+        res.json(highlightedHotelRooms);
+   })
 
 
 
